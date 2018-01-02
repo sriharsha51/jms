@@ -1,0 +1,227 @@
+<div class="container-fluid">
+  <form class="jumbotron col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10">
+    <span class="page-header">Search Events</span>
+    <button class="btn btn-success pull-right create-event-btn" data-toggle="modal" data-target="#CreateEventModal">Create Event</button>
+    <div class="form-group">
+      <br>
+      <input type="search" name="search" class="form-control" placeholder="Search by event Name or event ID">
+    </div>
+    <br>
+    <button class="btn btn-primary">Search&nbsp;&nbsp;
+      <span class="glyphicon glyphicon-search"></span>
+    </button>
+  </form>
+  <div class="col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10">
+    <h3>Upcoming Events</h3>
+    <table class="table table-responsive table-hover table-striped table-responsive">
+      <thead>
+        <tr>
+          <th>Event ID</th>
+          <th>Event Name</th>
+          <th>Event Date</th>
+          <th>Event Duration</th>
+          <th>Number. of Jurors Summoned</th>
+          <th>More Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>REN1</td>
+          <td>Jury 1</td>
+          <td>1/12/2018</td>
+          <td>1 hr</td>
+          <td>8</td>
+          <td>
+            <button class="btn btn-info event-btn" data-toggle="modal" data-target="#ViewEventModal">View Event</button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Create Event Modal start-->
+<div class="modal fade" id="CreateEventModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create New Event</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-3" for="event-name">Event Name:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="event-name" placeholder="Please enter Event Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-3" for="event-id">Event ID:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="event-id" placeholder="Please enter event ID">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-3" for="date">Event Date:</label>
+            <div class="col-sm-6">
+              <input type="date" class="form-control" id="date">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-3" for="duration">Event Duration:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="duration" placeholder="Please enter duration">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-3" for="judge-name">Judge Name:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="judge-name" placeholder="Please enter Judge Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-3" for="defendant-name">Defendant Name:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="defendant-name" placeholder="Please enter defendant name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-3" for="case-number">Case Number:</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" id="case-number" placeholder="Please enter case number">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-3" for="room-number">Room Number:</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" id="room-number" placeholder="Please enter room number">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-6">
+              <button type="submit" class="btn btn-default" data-dismiss="modal">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Create Event Modal end-->
+<!--View Event Modal start-->
+<div class="modal fade" id="ViewEventModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Event Details</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-responsive">
+          <tr>
+            <th>Event Name</th>
+            <td>Jury 1</td>
+          </tr>
+          <tr>
+            <th>Event ID</th>
+            <td>REN1</td>
+          </tr>
+          <tr>
+            <th>Event Date</th>
+            <td>1/12/2018</td>
+          </tr>
+          <tr>
+            <th>Event Duration</th>
+            <td>1hr</td>
+          </tr>
+          <tr>
+            <th>Judge Name</th>
+            <td>John Cary</td>
+          </tr>
+          <tr>
+            <th>Defendant Name</th>
+            <td>Max truce</td>
+          </tr>
+          <tr>
+            <th>Case Number</th>
+            <td>1246</td>
+          </tr>
+          <tr>
+            <th>Room Number</th>
+            <td>12</td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--View Event Modal end-->

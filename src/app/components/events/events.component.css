@@ -1,0 +1,12 @@
+.page-header {
+    font-size: 35px;
+}
+
+th, td{
+    text-align: center;
+}
+
+.event-btn {
+    padding: 2px;
+}
+
