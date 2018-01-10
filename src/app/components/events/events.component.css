@@ -9,4 +9,17 @@ th, td{
 .event-btn {
     padding: 2px;
 }
+.jumbotron {
+    margin-top: 20px;
+}
 
+.filteredBy {
+    margin:30px 0 30px 0;
+    color: #449D44;
+}
+
+#search-input {
+    background-image: url('../../../assets/images/search.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+}

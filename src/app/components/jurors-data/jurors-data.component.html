@@ -3,12 +3,13 @@
     <h2>Search Jurors</h2>
     <div class="form-group">
       <br>
-      <input type="search" name="search" class="form-control" placeholder="Search by Juror Name or Juror ID">
+      <input type="search" name="search" id="search-input" [(ngModel)]="jurorFilter" class="form-control" placeholder="Search by Juror First Name">
     </div>
-    <br>
-    <button class="btn btn-primary">Search&nbsp;&nbsp;<span class="glyphicon glyphicon-search"></span></button>
   </form>
   <div class="col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10">
+      <div *ngIf="showFilteredBy" class="filteredBy">
+          <h4>Filtered By: {{ jurorFilter }}</h4>
+        </div>
     <table class="table table-responsive table-hover table-striped table-bordered table-responsive">
       <thead>
         <tr>
@@ -16,20 +17,19 @@
           <th>First Name</th>
           <th>Middle Name</th>
           <th>Last Name</th>
-          <th>Event Name</th>
-          <th>Status</th>
+          <th>Address</th>
+          <th>Email</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr *ngFor="let juror of filteredJurors">
+          <td>{{juror.jurorId}}</td>
+          <td>{{juror.firstName}}</td>
+          <td>{{juror.middleName}}</td>
+          <td>{{juror.lastName}}</td>
+          <td>{{juror.address}}</td>
+          <td>{{juror.email}}</td>
+        </tr>
       </tbody>
     </table>
   </div>

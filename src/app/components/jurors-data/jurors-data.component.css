@@ -1,3 +1,23 @@
  th, td{
     text-align: center;
 }
+
+.jumbotron {
+    margin-top: 20px;
+}
+
+#search-input {
+    background-image: url('../../../assets/images/search.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.filteredBy {
+    margin:30px 0 30px 0;
+    color: #449D44;
+}
+
+h2 {
+    margin-top: 0;
+}
+

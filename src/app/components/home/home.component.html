@@ -7,7 +7,7 @@
       <h3>Create and manage events</h3>
       <h3>Summon Jurors</h3>
       <h3>
-        <a routerLink='/sign-in'>
+        <a routerLink='/sign-in' *ngIf="!loginService.loggedIn">
           <button class="btn btn-success">Sign In or Register</button>
         </a>
       </h3>
