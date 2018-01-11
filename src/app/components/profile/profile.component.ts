@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
+import { IEmployee } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  currentEmployee: IEmployee;
+
+  constructor(private _dataService: DataService) { }
 
   ngOnInit() {
+    this.currentEmployee = JSON.parse(sessionStorage.getItem('currentJMSUser')); // getting the current user from the session storage and parsing it to JSON as it is stored in the form of string
   }
-
 }

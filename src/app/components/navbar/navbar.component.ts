@@ -8,10 +8,18 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  
+  isLoggedIn: boolean;
 
-  constructor(public loginService: LoginService) { }
+  constructor(public loginService: LoginService, private _router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.isLoggedIn = (sessionStorage.JMSloggedIn==='true'); // checking if the user is logged in and storing true or false in isLoggedIn.
+  }
+
+  signOut(): void {
+    this.loginService.signedInOut(false); // passing false when the user signs out and passing true when the user logs in.
+    this._router.navigate(['/home']); // redirecting to home page once the user signs out.
   }
 
 }

@@ -23,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let event of filteredEvents">
+        <tr *ngFor="let event of filteredEvents"> <!--We are looping through filteredEvents because while searching, we are filtering the events array and storing in the filteredEvents array-->
           <td>{{event.eventId}}</td>
           <td>{{event.eventName}}</td>
           <td>{{event.eventDate}}</td>
@@ -31,11 +31,9 @@
           <td>
             <button class="btn btn-info event-btn" data-toggle="modal" (click)="openViewEventModal(event)" data-target="#ViewEventModal">View Event</button>
             <!--View Event Modal start-->
-            <div class="modal fade" id="ViewEventModal" role="dialog">
+            <div class="modal fade" id="ViewEventModal" role="dialog"> <!--Modal to view entire event details-->
               <div class="modal-dialog">
-                <div class="modal-content">
                   <app-view-event></app-view-event>
-                </div>
               </div>
             </div>
             <!--View Event Modal end-->
@@ -44,9 +42,12 @@
       </tbody>
     </table>
   </div>
+  <div *ngIf='errorMessage' class='alert alert-danger'> <!--To display the error meassage, if there is any error while retrieving data-->
+      Error: {{ errorMessage }}
+  </div>
 </div>
 <!-- Create Event Modal start-->
-<div class="modal fade" id="CreateEventModal" role="dialog">
+<div class="modal fade" id="CreateEventModal" role="dialog"> <!--Modal to create the event-->
   <div class="modal-dialog">
     <app-create-event></app-create-event>
   </div>

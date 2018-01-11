@@ -22,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let juror of filteredJurors">
+        <tr *ngFor="let juror of filteredJurors"> <!--We are looping through filteredJurors because while searching, we are filtering the jurors array and storing in the filteredJurors array-->
           <td>{{juror.jurorId}}</td>
           <td>{{juror.firstName}}</td>
           <td>{{juror.middleName}}</td>
@@ -32,5 +32,8 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <div *ngIf='errorMessage' class='alert alert-danger'> <!--To display the error meassage, if there is any error while retrieving data-->
+      Error: {{ errorMessage }}
   </div>
 </div>

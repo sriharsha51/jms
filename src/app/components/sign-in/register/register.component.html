@@ -11,7 +11,7 @@
           <input type="text" class="form-control" name="firstName" formControlName="firstName" placeholder="First Name">
         </div>
       </div>
-      <div class="center" *ngIf="registerForm.controls['firstName'].errors?.required  && registerForm.controls['firstName'].dirty">
+      <div class="center" *ngIf="registerForm.controls['firstName'].errors?.required  && registerForm.controls['firstName'].dirty"><!--Validation Messages-->
         <em>Please enter first name.</em>
       </div>
       <div class="center" *ngIf="registerForm.controls['firstName'].errors?.minlength || registerForm.controls['firstName'].errors?.maxlength">
@@ -23,7 +23,7 @@
           <input type="text" class="form-control" name="lastName" formControlName="lastName" placeholder="Last Name">
         </div>
       </div>
-      <div class="center" *ngIf="registerForm.controls['lastName'].errors?.required  && registerForm.controls['lastName'].dirty">
+      <div class="center" *ngIf="registerForm.controls['lastName'].errors?.required  && registerForm.controls['lastName'].dirty"><!--Validation Messages-->
         <em>Please enter last name.</em>
       </div>
       <div class="center" *ngIf="registerForm.controls['lastName'].errors?.minlength || registerForm.controls['lastName'].errors?.maxlength">
@@ -35,7 +35,7 @@
           <input type="text" class="form-control" name="empId" formControlName="empId" placeholder="Employee ID">
         </div>
       </div>
-      <div class="center" *ngIf="registerForm.controls['empId'].errors?.required  && registerForm.controls['empId'].dirty">
+      <div class="center" *ngIf="registerForm.controls['empId'].errors?.required  && registerForm.controls['empId'].dirty"><!--Validation Messages-->
         <em>Please enter your employee ID.</em>
       </div>
       <div class="form-group" [ngClass]="{'has-error': registerForm.get('email').dirty && !registerForm.get('email').valid }">
@@ -44,7 +44,7 @@
           <input type="email" class="form-control" name="email" formControlName="email" placeholder="Email">
         </div>
       </div>
-      <div class="center" *ngIf="registerForm.controls['email'].errors?.required && registerForm.controls['email'].dirty">
+      <div class="center" *ngIf="registerForm.controls['email'].errors?.required && registerForm.controls['email'].dirty"><!--Validation Messages-->
         <em>Please enter email.</em>
       </div>
       <div class="center" *ngIf="registerForm.controls['email'].errors?.validateEmail && registerForm.controls['email'].dirty">
@@ -57,7 +57,7 @@
             <input type="password" class="form-control" formControlName="password" placeholder="Password">
           </div>
         </div>
-        <div class="center" *ngIf="registerForm.controls['password'].errors?.required && registerForm.controls['password'].dirty">
+        <div class="center" *ngIf="registerForm.controls['password'].errors?.required && registerForm.controls['password'].dirty"><!--Validation Messages-->
           <em>Please enter password.</em>
         </div>
         <div class="center" *ngIf="registerForm.controls['password'].errors?.minlength || registerForm.controls['password'].errors?.maxlength">
@@ -72,7 +72,7 @@
             <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm password">
           </div>
         </div>
-        <div class="center" *ngIf="registerForm.controls['confirmPassword'].errors?.required  && registerForm.controls['confirmPassword'].dirty">
+        <div class="center" *ngIf="registerForm.controls['confirmPassword'].errors?.required  && registerForm.controls['confirmPassword'].dirty"><!--Validation Messages-->
           <em>Please enter password.</em>
         </div>
         <div class="center" *ngIf="registerForm.errors?.matchingPasswords && registerForm.controls['confirmPassword'].dirty">

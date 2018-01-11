@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private _formbuilder: FormBuilder) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.registerForm = this._formbuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
     }, {validator: this.matchingPasswords('password', 'confirmPassword')})
   }
 
-  validateEmail(controls): {[key: string]: boolean} | null {
+  validateEmail(controls): {[key: string]: boolean} | null { // validating email using pattern
     const regExp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     if (regExp.test(controls.value)) {
       return null; 
@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  validatePassword(controls): {[key: string]: boolean} | null {
+  validatePassword(controls): {[key: string]: boolean} | null { // validating password using pattern
     const regExp = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/);
     if (regExp.test(controls.value)) {
       return null; 
@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
   }
   
 
-  matchingPasswords(password: string, confirmPassword: string) {
+  matchingPasswords(password: string, confirmPassword: string) { // checking password and confirm password input fields.
     return (group: FormGroup) => {
       if(group.controls[password].value === group.controls[confirmPassword].value) {
         return null;

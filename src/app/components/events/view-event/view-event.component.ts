@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IEvent } from '../../../interfaces/interfaces';
 
 @Component({
   selector: 'app-view-event',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewEventComponent implements OnInit {
 
-  eventDetails: any;
+  eventDetails: IEvent; // getting event details through viewchild in the parent component.
 
   constructor() { }
 

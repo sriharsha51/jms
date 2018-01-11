@@ -21,6 +21,7 @@ import { CreateEventComponent } from './components/events/create-event/create-ev
 
 import { LoginService } from './services/login.service';
 import { DataService } from './services/data.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 
@@ -48,7 +49,7 @@ import { DataService } from './services/data.service';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [LoginService, DataService],
+  providers: [LoginService, DataService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 

@@ -2,22 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-
-
-// function passwordMatcher(c: AbstractControl): {[key: string]: boolean} | null {
-//   let password = c.get('email');
-//   let confirmPassword = c.get('confirmEmail');
-
-//   if (password.pristine || confirmPassword.pristine) {
-//     return null;
-//   }
-
-//   if (password.value === confirmPassword.value) {
-//       return null;
-//   }
-//   return { 'match': true };
-// }
-
+import { DataService } from '../../services/data.service';
+import { IEmployee } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-sign-in',
@@ -27,30 +13,71 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from
 
 export class SignInComponent implements OnInit {
 
-  loginForm: FormGroup
+  loginForm: FormGroup;
+  employees:IEmployee[]=[];
+  inputEmail: string;
+  inputPassword: string;
+  validEmail: boolean;
+  validPassword: boolean;
+  loginMessage: string;
+  currentEmployee: IEmployee;
+  errorMessage: string;
   
-  constructor(private _router:Router, public loginService: LoginService, private _formbuilder: FormBuilder) { }
+  constructor(private _router:Router, public loginService: LoginService, private _formbuilder: FormBuilder, private _dataService: DataService) { }
 
   ngOnInit(): void {
     this.loginForm = this._formbuilder.group({
-      email: ['', [Validators.required, this.validateEmail]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
-  }
 
-  validateEmail(controls): {[key: string]: boolean} | null {
-    const regExp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-    if (regExp.test(controls.value)) {
-      return null; 
-        } else {
-      return { 'validateEmail': true } 
+    this._dataService.getEmployees().subscribe(data => { // getting the employee's data from the service.
+      this.employees = data;     
+    },
+    error => this.errorMessage = <any>error);
+
+    this.loginForm.get('email').valueChanges.subscribe(value => { // to dynamically check and validate user's email 
+      this.checkEmail(value);
+    })
+
+    this.loginForm.get('password').valueChanges.subscribe(value => { // to dynamically check and validate user's password 
+      this.checkPassword(value);
+    })
+    
+    if(this.loginService.redirectUrl) {
+    this.loginMessage = this.loginService.redirectMessage; // to display message that user access is restricted to certain pages unless user logs in.
     }
   }
 
-  login() {
-    this.loginService.signedIn();
-    this._router.navigate(['/home']);
-    
+  checkEmail(email): void { // to check and match email
+    this.validEmail = false;
+    this.inputEmail = email;
+      this.employees.map((employee) => {
+     if(employee.email===this.inputEmail) {
+       this.validEmail = true;
+       this.currentEmployee  = employee;
+     }
+   })
+  }
+
+  checkPassword(password): void { // to check and match password 
+    this.validPassword = false;
+    this.inputPassword = password;
+    this.employees.map((employee) => {
+     if((employee.password === this.inputPassword) && (this.currentEmployee.email === employee.email) ) { // to check if the email and password details are of same employee
+       this.validPassword = true;
+       sessionStorage.setItem("currentJMSUser", JSON.stringify(employee));
+     }
+   })
+  }
+
+  login(): void {
+    this.loginService.signedInOut(true); // sending true if the user logs in.
+    if(this.loginService.redirectUrl) { // checking if redirectUrl is present to navigate user to that url after the user logs in.
+      this._router.navigateByUrl(this.loginService.redirectUrl);
+    } else {
+      this._router.navigate(['/home']);  
+    }
   }
 
 }

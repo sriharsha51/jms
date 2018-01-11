@@ -8,9 +8,12 @@ import { LoginService } from '../../services/login.service';
 })
 export class HomeComponent implements OnInit {
 
+  isLoggedIn: boolean;
+
   constructor(public loginService: LoginService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.isLoggedIn = (sessionStorage.JMSloggedIn==='true'); // checking if the user is logged in.
   }
 
 }

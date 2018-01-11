@@ -18,7 +18,7 @@ th, td{
     color: #449D44;
 }
 
-#search-input {
+#search-input { /* search icon in the search input*/
     background-image: url('../../../assets/images/search.png');
     background-repeat: no-repeat;
     background-position: right center;

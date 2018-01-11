@@ -19,3 +19,12 @@ export interface IEvent {
     caseNumber: number,
     roomNumber: number
 }
+
+export interface IEmployee {
+    empId: string,
+    index: number,
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string
+}

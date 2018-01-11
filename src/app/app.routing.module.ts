@@ -8,16 +8,17 @@ import { JurorsDataComponent } from "./components/jurors-data/jurors-data.compon
 import { EventsComponent } from "./components/events/events.component";
 import { SummonJurorsComponent } from "./components/summon-jurors/summon-jurors.component";
 import { HomeComponent } from './components/home/home.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const appRoutes: Routes = [
     { path: '', component:HomeComponent},
     { path: 'home', component:HomeComponent},
     { path: 'sign-in', component:SignInComponent},
-    { path: 'profile', component:ProfileComponent},
-    { path: 'jurors-data', component:JurorsDataComponent},
-    { path: 'events', component:EventsComponent},
-    { path: 'summon-jurors', component:SummonJurorsComponent},
+    { path: 'profile', component:ProfileComponent, canActivate:[ AuthGuardService ]}, 
+    { path: 'jurors-data', component:JurorsDataComponent, canActivate:[ AuthGuardService ]},
+    { path: 'events', component:EventsComponent, canActivate:[ AuthGuardService ]},
+    { path: 'summon-jurors', component:SummonJurorsComponent, canActivate:[ AuthGuardService ]},
     { path: '**', component:HomeComponent }
   ];
 

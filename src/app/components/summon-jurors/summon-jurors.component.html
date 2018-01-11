@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <form [formGroup]="summonJurorsForm" (submit)="onSummonJurors(summonJurorsForm.controls['inputNumber'].value)" novalidate class="col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 col-sm-offset-1 col-sm-10">
     <h2>Summon Jurors</h2>
     <br>
@@ -19,8 +19,8 @@
         <input type="number" formControlName="inputNumber" placeholder="Please enter number of Jurors to summon" name="jurors-number"
           class="form-control">
       </div>
-      <div class="center" *ngIf="!selectedEvent && summonJurorsForm.controls['inputNumber'].dirty">
-          <em>Please select the event name first.</em>
+      <div class="center" *ngIf="!selectedEvent && summonJurorsForm.controls['inputNumber'].dirty"><!--Validation messages-->
+          <em>Please select the event name first.</em> <!--to request user to select event name first-->
         </div>
       <div class="center" *ngIf="summonJurorsForm.controls['inputNumber'].errors?.required && summonJurorsForm.controls['inputNumber'].dirty && selectedEvent">
         <em>Please enter number of jurors.</em>
@@ -49,5 +49,8 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <div *ngIf='errorMessage' class='alert alert-danger'>
+      Error: {{ errorMessage }}
   </div>
 </div>

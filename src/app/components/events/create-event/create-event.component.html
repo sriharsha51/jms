@@ -11,7 +11,7 @@
           <input type="text" class="form-control" formControlName="eventName" placeholder="Please enter Event Name">
         </div>
       </div>
-      <div class="center" *ngIf="createEventForm.controls['eventName'].errors?.required  && createEventForm.controls['eventName'].dirty">
+      <div class="center" *ngIf="createEventForm.controls['eventName'].errors?.required  && createEventForm.controls['eventName'].dirty"><!--Validation Messages-->
         <em>Please enter event name.</em>
       </div>
       <div class="center" *ngIf="createEventForm.controls['eventName'].errors?.minlength || createEventForm.controls['eventName'].errors?.maxlength">
@@ -23,7 +23,7 @@
           <input type="text" class="form-control" formControlName="eventId" placeholder="Please enter event ID">
         </div>
       </div>
-      <div class="center" *ngIf="createEventForm.controls['eventId'].errors?.required && createEventForm.controls['eventId'].dirty">
+      <div class="center" *ngIf="createEventForm.controls['eventId'].errors?.required && createEventForm.controls['eventId'].dirty"><!--Validation Messages-->
         <em>Please enter event ID.</em>
       </div>
       <div class="center" *ngIf="createEventForm.controls['eventId'].errors?.minlength || createEventForm.controls['eventId'].errors?.maxlength">
@@ -32,14 +32,14 @@
       <div class="form-group" [ngClass]="{'has-error': createEventForm.controls['date'].dirty && (!createEventForm.controls['date'].valid || isError)}">
         <label class="control-label col-sm-offset-1 col-sm-3" for="date">Event Date:</label>
         <div class="col-sm-6">
-          <input type="date" class="form-control" formControlName="date" (blur)="validateDate(createEventForm.controls['date'].value)">
+          <input type="date" class="form-control" formControlName="date">
         </div>
       </div>
-      <div class="center" *ngIf="createEventForm.controls['date'].errors?.required && createEventForm.controls['date'].dirty">
+      <div class="center" *ngIf="createEventForm.controls['date'].errors?.required && createEventForm.controls['date'].dirty"><!--Validation Messages-->
         <em>Please select date.</em>
       </div>
       <div class="center" *ngIf="isError && createEventForm.controls['date'].dirty">
-        <em>You can not select past date.</em>
+        <em>You can not select current or past date.</em>
       </div>
       <div class="form-group" [ngClass]="{'has-error': createEventForm.controls['duration'].dirty && !createEventForm.controls['duration'].valid}">
         <label class="control-label col-sm-offset-1 col-sm-3" for="duration">Event Duration:</label>
@@ -47,7 +47,7 @@
           <input type="text" class="form-control" formControlName="duration" placeholder="Please enter duration. Ex:1hr">
         </div>
       </div>
-      <div class="center" *ngIf="createEventForm.controls['duration'].errors?.required && createEventForm.controls['duration'].dirty">
+      <div class="center" *ngIf="createEventForm.controls['duration'].errors?.required && createEventForm.controls['duration'].dirty"><!--Validation Messages-->
         <em>Please enter event duration.</em>
       </div>
       <div class="center" *ngIf="createEventForm.controls['duration'].errors?.minlength || createEventForm.controls['duration'].errors?.maxlength">
@@ -59,7 +59,7 @@
           <input type="text" class="form-control" formControlName="judgeName" placeholder="Please enter Judge Name">
         </div>
       </div>
-      <div class="center" *ngIf="createEventForm.controls['judgeName'].errors?.required  && createEventForm.controls['judgeName'].dirty">
+      <div class="center" *ngIf="createEventForm.controls['judgeName'].errors?.required  && createEventForm.controls['judgeName'].dirty"><!--Validation Messages-->
         <em>Please enter Judge name.</em>
       </div>
       <div class="center" *ngIf="createEventForm.controls['judgeName'].errors?.minlength || createEventForm.controls['judgeName'].errors?.maxlength">
@@ -71,7 +71,7 @@
           <input type="text" class="form-control" formControlName="defendantName" placeholder="Please enter defendant name">
         </div>
       </div>
-      <div class="center" *ngIf="createEventForm.controls['defendantName'].errors?.required  && createEventForm.controls['defendantName'].dirty">
+      <div class="center" *ngIf="createEventForm.controls['defendantName'].errors?.required  && createEventForm.controls['defendantName'].dirty"><!--Validation Messages-->
         <em>Please enter Defendant name.</em>
       </div>
       <div class="center" *ngIf="createEventForm.controls['defendantName'].errors?.minlength || createEventForm.controls['defendantName'].errors?.maxlength">
@@ -83,7 +83,7 @@
           <input type="number" class="form-control" formControlName="caseNumber" placeholder="Please enter case number">
         </div>
       </div>
-      <div class="center" *ngIf="createEventForm.controls['caseNumber'].errors?.required  && createEventForm.controls['caseNumber'].dirty">
+      <div class="center" *ngIf="createEventForm.controls['caseNumber'].errors?.required  && createEventForm.controls['caseNumber'].dirty"><!--Validation Messages-->
         <em>Please enter case number.</em>
       </div>
       <div class="center" *ngIf="createEventForm.controls['caseNumber'].errors?.min || createEventForm.controls['caseNumber'].errors?.max">
@@ -95,7 +95,7 @@
           <input type="number" class="form-control" formControlName="roomNumber" placeholder="Please enter room number">
         </div>
       </div>
-      <div class="center" *ngIf="createEventForm.controls['roomNumber'].errors?.required  && createEventForm.controls['roomNumber'].dirty">
+      <div class="center" *ngIf="createEventForm.controls['roomNumber'].errors?.required  && createEventForm.controls['roomNumber'].dirty"><!--Validation Messages-->
         <em>Please enter room number.</em>
       </div>
       <div class="center" *ngIf="createEventForm.controls['roomNumber'].errors?.min || createEventForm.controls['roomNumber'].errors?.max">
